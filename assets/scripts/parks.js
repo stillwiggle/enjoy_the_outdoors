@@ -1,11 +1,11 @@
 "use strict"
 // This file has locationsArray, nationalParksArray, parkTypesArray available to it because parks.html has load_national_parks_data.js loaded above this file.
 
-const searchMethod = document.querySelector("#searchMethod");
-const listStates = document.querySelector("#stateSelection");
-const showTheParks = document.querySelector("#showParks");
-const showParksList = document.querySelector("#parkList");
-const listTypes = document.querySelector("#typeSelection");
+const searchMethod = document.querySelector("#searchMethod");       // drop-down to determine the search method
+const listStates = document.querySelector("#stateSelection");       // drop-down listing out the available states to search by
+const listTypes = document.querySelector("#typeSelection");         // drop-down listing out the Park Types to search by
+const showTheParks = document.querySelector("#showParks");          // button for displaying the parks based upon selected filters
+const showParksList = document.querySelector("#parkList");          // <ul> where the filtered parks list will display
 
 // Drop-down populates if Location is selected as the search method
 searchMethod.onchange = (event) => {
@@ -42,6 +42,7 @@ showTheParks.addEventListener("click", function(event) {
     // starts by clearing out all <li> elements within the <ul> to produce a clean list
     showParksList.innerHTML = "";
 
+    // Filtering method when Location is the search method
     if (searchMethod.value === "state") {
         // creates a variable to store the state chosen in the drop-down
         let chosenState = listStates.value;
@@ -56,6 +57,7 @@ showTheParks.addEventListener("click", function(event) {
             showParksList.innerHTML += `<li>${parks.LocationName}</li>`;
         });
     }
+    // Filtering method when Park Type is the search method
     else if (searchMethod.value === "type") {
         let chosenType = listTypes.value;
         const filteredParksList = nationalParksArray.filter((park) => {
