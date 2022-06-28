@@ -14,26 +14,25 @@ searchMethod.onchange = (event) => {
     if (searchMethod.value === "state") {
         locationsArray.forEach(function(state) {
             listStates.innerHTML += `<option value=\"${state}\">${state}</option>`;
-            document.querySelector("#byLoc").classList.remove("d-none");
-            document.querySelector("#byType").classList.add("d-none");
-            showTheParks.classList.remove("d-none");
+            document.querySelector("#byLoc").classList.remove("d-none");    // Shows the State (byLoc) drop-down
+            document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
+            showTheParks.classList.remove("d-none");                        // Hides the <ul> showing the parks list 
         });
     }
     // serach by park type
     else if (searchMethod.value === "type") {
         parkTypesArray.forEach(function(park) {
             listTypes.innerHTML += `<option value=\"${park}\">${park}</option>`;
-            document.querySelector("#byType").classList.remove("d-none");
-            document.querySelector("#byLoc").classList.add("d-none");
-            showTheParks.classList.remove("d-none");
+            document.querySelector("#byType").classList.remove("d-none");   // Shows the Park Type (byType) drop-down
+            document.querySelector("#byLoc").classList.add("d-none");       // Hides the State (byLoc) drop-down
+            showTheParks.classList.remove("d-none");                        // Hides the <ul> showing the parks list
         });
     }
     // if blank is selected after another choice has been made
     else {
-        document.querySelector("#byType").classList.add("d-none");
-        document.querySelector("#byLoc").classList.add("d-none");
-        showTheParks.classList.add("d-none");
-        alert("You must select an option.");
+        document.querySelector("#byType").classList.add("d-none");          // Hides the Park Type (byType) drop-down
+        document.querySelector("#byLoc").classList.add("d-none");           // Hides the State (byLoc) drop-down
+        showTheParks.classList.add("d-none");                               // Hides the <ul> showing the parks list
     }
 }
 
