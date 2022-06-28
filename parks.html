@@ -18,14 +18,33 @@
 
         <h1>National Parks Search</h1>
 
-        <input type="radio" id="byLocation" name="searchType" value="byLocation">
-        <label for="byLocation">Location</label>
-        <input type="radio" id="byParkType" name="searchType" value="byParkType">
-        <label for="byParkType">Park Type</label>
-        <br>
-        <button id="showList">Show List</button>
+        <!-- Radio button for search type selection -->
+        <!-- <fieldset>
+            <legend>Select a search method:</legend>
+            <div>
+                <input type="radio" id="byLoc" name="searchType" value="byLocation">
+                <label for="byLoc">Location</label>
+            </div>
+            <div>
+                <input type="radio" id="byType" name="searchType" value="byParkType">
+                <label for="byType">Park Type</label>
+            </div>
+            <br>
+            <button id="showList">Show List</button>
+        </fieldset> -->
+        <div>
+            <label for="searchType">Choose to search by state or park type:</label>
+            <select name="searchType" id="searchMethod">
+                <option value="empty"></option>
+                <option value="state">State</option>
+                <option value="type">Park Type</option>
+            </select>
+            <br>
+            <button id="showList">Show List</button>
+        </div>
         <br><br>
 
+        <!-- Searching by Location (State) -->
         <div id="byLoc" class="d-none">
             <label for="locationList">Select a state:</label><br>
             <select name="locationList" id="stateSelection">
@@ -33,17 +52,22 @@
             </select>
         </div>
         <br>
-        <button id="showLocations" class="">Show Parks</button>
+
+        <!-- Searching by park type -->
+        <div id="byType" class="d-none">
+            <label for="typeList">Select a park type:</label><br>
+            <select name="typeList" id="typeSelection">
+
+            </select>
+        </div>
+        <br>
+
+        <!-- List of parks based on the filtering criteria above -->
+        <button id="showParks" class="d-none">Show Parks</button>
         <br>
         <ul id="parkList">
 
         </ul>
-
-        <!-- <button id="sampleButton">clicky click</button>
-        class="d-none" hides the element and its children
-        <ul id="locations" class="d-none">
-            <li>Sample </li>
-        </ul> -->
 
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
