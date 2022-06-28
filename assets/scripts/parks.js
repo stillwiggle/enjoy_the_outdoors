@@ -58,7 +58,9 @@ showTheParks.addEventListener("click", function(event) {
     else if (searchMethod.value === "type") {
         let chosenType = listTypes.value;
         const filteredParksList = nationalParksArray.filter((park) => {
-            return park.LocationName.includes(chosenType);
+            // uses lower-case to ensure there are matches even if casing is off
+            let parkString = park.LocationName.toLowerCase();
+            return parkString.includes(chosenType.toLowerCase());
         })
 
         // using the filtered array above, creates new <li> elements for each park, using only the names of the parks
