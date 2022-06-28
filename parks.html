@@ -18,29 +18,15 @@
 
         <h1>National Parks Search</h1>
 
-        <!-- Radio button for search type selection -->
-        <!-- <fieldset>
-            <legend>Select a search method:</legend>
-            <div>
-                <input type="radio" id="byLoc" name="searchType" value="byLocation">
-                <label for="byLoc">Location</label>
-            </div>
-            <div>
-                <input type="radio" id="byType" name="searchType" value="byParkType">
-                <label for="byType">Park Type</label>
-            </div>
-            <br>
-            <button id="showList">Show List</button>
-        </fieldset> -->
+        <!-- Choosing the search method -->
         <div>
             <label for="searchType">Choose to search by state or park type:</label>
             <select name="searchType" id="searchMethod">
-                <option value="empty"></option>
+                <option value="unselected"></option>
                 <option value="state">State</option>
                 <option value="type">Park Type</option>
             </select>
             <br>
-            <button id="showList">Show List</button>
         </div>
         <br><br>
 

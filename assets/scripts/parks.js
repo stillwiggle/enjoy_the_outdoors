@@ -9,8 +9,7 @@ const showParksList = document.querySelector("#parkList");
 const listTypes = document.querySelector("#typeSelection");
 
 // Drop-down populates if Location is selected as the search method
-showListButton.addEventListener("click", function(event) {
-    
+searchMethod.onchange = (event) => {
     showParksList.innerHTML = "";
     // Search by location
     if (searchMethod.value === "state") {
@@ -30,11 +29,14 @@ showListButton.addEventListener("click", function(event) {
             showTheParks.classList.remove("d-none");
         });
     }
+    // if blank is selected after another choice has been made
     else {
-        alert("You must select an option.")
+        document.querySelector("#byType").classList.add("d-none");
+        document.querySelector("#byLoc").classList.add("d-none");
+        showTheParks.classList.add("d-none");
+        alert("You must select an option.");
     }
-    
-});
+}
 
 // Display parks
 showTheParks.addEventListener("click", function(event) {
