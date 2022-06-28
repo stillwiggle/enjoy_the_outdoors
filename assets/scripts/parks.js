@@ -2,7 +2,6 @@
 // This file has locationsArray, nationalParksArray, parkTypesArray available to it because parks.html has load_national_parks_data.js loaded above this file.
 
 const searchMethod = document.querySelector("#searchMethod");
-const showListButton = document.querySelector("#showList");
 const listStates = document.querySelector("#stateSelection");
 const showTheParks = document.querySelector("#showParks");
 const showParksList = document.querySelector("#parkList");
