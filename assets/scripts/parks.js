@@ -81,12 +81,19 @@ showTheParks.addEventListener("click", function(event) {
 function showParks (filteredArray) {
     filteredArray.forEach(function(parks) {
         let address = parks.Address.split(`${parks.LocationName}, `).pop()
+        let website = "";
+        if (parks.hasOwnProperty('Visit')) {
+            website = `Website: <a href="${parks.Visit}" target="_blank">${parks.Visit}</a>`;
+        }
         showParksList.innerHTML += `
             <tr>
                 <td>
                     <h2>${parks.LocationName}</h2>
                     ${address}<br>
                     ${parks.City}, ${parks.State} ${parks.ZipCode}
+                </td>
+                <td>
+                    ${website}
                 </td>
             </tr>`;
     });
