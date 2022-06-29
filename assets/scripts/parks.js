@@ -14,25 +14,31 @@ searchMethod.onchange = (event) => {
     if (searchMethod.value === "state") {
         locationsArray.forEach(function(state) {
             listStates.innerHTML += `<option value=\"${state}\">${state}</option>`;
-            document.querySelector("#byLoc").classList.remove("d-none");    // Shows the State (byLoc) drop-down
+            document.querySelector("#byLoc").classList.remove("d-none");    // Displays the State (byLoc) drop-down
             document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
-            showTheParks.classList.remove("d-none");                        // Hides the <ul> showing the parks list 
+            showTheParks.classList.remove("d-none");                        // Displays the Show Parks button
         });
     }
     // serach by park type
     else if (searchMethod.value === "type") {
         parkTypesArray.forEach(function(park) {
             listTypes.innerHTML += `<option value=\"${park}\">${park}</option>`;
-            document.querySelector("#byType").classList.remove("d-none");   // Shows the Park Type (byType) drop-down
+            document.querySelector("#byType").classList.remove("d-none");   // Displays the Park Type (byType) drop-down
             document.querySelector("#byLoc").classList.add("d-none");       // Hides the State (byLoc) drop-down
-            showTheParks.classList.remove("d-none");                        // Hides the <ul> showing the parks list
+            showTheParks.classList.remove("d-none");                        // Displays the Show Parks button
         });
+    }
+    else if (event.target.value === "all-Parks") {
+        nationalParksArray.forEach(function(park) {
+            showParksList.innerHTML += `<li>${park.LocationName}</li>`;
+        });
+        showTheParks.classList.add("d-none");                            // Displays the Show Parks button
     }
     // if blank is selected after another choice has been made
     else {
         document.querySelector("#byType").classList.add("d-none");          // Hides the Park Type (byType) drop-down
         document.querySelector("#byLoc").classList.add("d-none");           // Hides the State (byLoc) drop-down
-        showTheParks.classList.add("d-none");                               // Hides the <ul> showing the parks list
+        showTheParks.classList.add("d-none");                               // Hides the Show Parks button
     }
 }
 
