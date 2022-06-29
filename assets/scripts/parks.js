@@ -30,9 +30,6 @@ searchMethod.onchange = (event) => {
     }
     // display all parks (no search)
     else if (event.target.value === "all-Parks") {
-        // nationalParksArray.forEach(function(park) {
-        //     showParksList.innerHTML += `<li>${park.LocationName}</li>`;
-        // });
         showParks(nationalParksArray);
         document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
         document.querySelector("#byLoc").classList.add("d-none");       // Hides the State (byLoc) drop-down
@@ -80,8 +77,30 @@ showTheParks.addEventListener("click", function(event) {
 
 function showParks (filteredArray) {
     filteredArray.forEach(function(parks) {
-        // attempts to remove the park's name from the address (isn't always succesful due to abbreviations and special characters)
-        let address = parks.Address.split(`${parks.LocationName}, `).pop()
+        // Address field: 0 = no address displayed.  Anything else gets a string
+        let address = "";
+        if (parks.Address !== 0) {
+            // attempts to remove the park's name from the address (isn't always succesful due to abbreviations and special characters)
+            address = parks.Address.split(`${parks.LocationName}, `).pop();
+        }
+
+        // Phone field: 0 = no phone line displayed.  Anything else gets a string
+        let phone = "";
+        if (parks.Phone !== 0) {
+            phone = `Phone: ${parks.Phone}<br>`;
+        }
+
+        // Fax field: 0 = no fax line displayed.  Anything else gets a string
+        let fax = "";
+        if (parks.Fax !== 0) {
+            fax = `Fax: ${parks.Fax}`;
+        }
+
+        // Zip Code field: 0 = no zip code displayed in address.  Anything else gets a number
+        let zip = ""
+        if (parks.ZipCode !== 0) {
+            zip = `${parks.ZipCode}`;
+        }
 
         // checks to see if an object has a Visit property.  If it does, then create HTML for the website as a string to be used below.
         let website = "";
@@ -95,10 +114,12 @@ function showParks (filteredArray) {
                 <td>
                     <h2>${parks.LocationName}</h2>
                     ${address}<br>
-                    ${parks.City}, ${parks.State} ${parks.ZipCode}
+                    ${parks.City}, ${parks.State} ${zip}
                 </td>
                 <td>
-                    ${website}
+                    ${website}<br>
+                    ${phone}
+                    ${fax}
                 </td>
             </tr>`;
     });
