@@ -30,9 +30,10 @@ searchMethod.onchange = (event) => {
     }
     // display all parks (no search)
     else if (event.target.value === "all-Parks") {
-        nationalParksArray.forEach(function(park) {
-            showParksList.innerHTML += `<li>${park.LocationName}</li>`;
-        });
+        // nationalParksArray.forEach(function(park) {
+        //     showParksList.innerHTML += `<li>${park.LocationName}</li>`;
+        // });
+        showParks(nationalParksArray);
         document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
         document.querySelector("#byLoc").classList.add("d-none");       // Hides the State (byLoc) drop-down
         showTheParks.classList.add("d-none");                           // Hides the Show Parks button
@@ -61,9 +62,7 @@ showTheParks.addEventListener("click", function(event) {
         })
 
         // using the filtered array above, creates new <li> elements for each park, using only the names of the parks
-        filteredParksList.forEach(function(parks) {
-            showParksList.innerHTML += `<li>${parks.LocationName}</li>`;
-        });
+        showParks(filteredParksList);
     }
     // Filtering method when Park Type is the search method
     else if (searchMethod.value === "type") {
@@ -75,8 +74,20 @@ showTheParks.addEventListener("click", function(event) {
         })
 
         // using the filtered array above, creates new <li> elements for each park, using only the names of the parks
-        filteredParksList.forEach(function(parks) {
-            showParksList.innerHTML += `<li>${parks.LocationName}</li>`;
-        });
+        showParks(filteredParksList);
     }
 });
+
+function showParks (filteredArray) {
+    filteredArray.forEach(function(parks) {
+        let address = parks.Address.split(`${parks.LocationName}, `).pop()
+        showParksList.innerHTML += `
+            <tr>
+                <td>
+                    <h2>${parks.LocationName}</h2>
+                    ${address}<br>
+                    ${parks.City}, ${parks.State} ${parks.ZipCode}
+                </td>
+            </tr>`;
+    });
+}
