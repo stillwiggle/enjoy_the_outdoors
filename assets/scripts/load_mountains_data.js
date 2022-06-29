@@ -6,6 +6,13 @@ window.onload = function(){
 
     loadJsonData("assets/data/mountains.json").then((mountains) => {
         mountainsArray = mountains.mountains;
+
+        // Populate the drop-down list as soon as the data is loaded
+        const mountainsList = document.querySelector("#mountains");
+
+        mountainsArray.forEach(function(mountain) {
+            mountainsList.innerHTML += `<option>${mountain.name}</option>`
+        });
     })
 
 }
