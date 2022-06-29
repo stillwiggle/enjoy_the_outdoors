@@ -1,6 +1,7 @@
 "use strict"
 
 let mountainsArray = []
+const mountainsList = document.querySelector("#mountains");
 
 window.onload = function(){
 
@@ -8,10 +9,8 @@ window.onload = function(){
         mountainsArray = mountains.mountains;
 
         // Populate the drop-down list as soon as the data is loaded
-        const mountainsList = document.querySelector("#mountains");
-
         mountainsArray.forEach(function(mountain) {
-            mountainsList.innerHTML += `<option>${mountain.name}</option>`
+            mountainsList.innerHTML += `<option value="${mountain.name}">${mountain.name}</option>`
         });
     })
 
