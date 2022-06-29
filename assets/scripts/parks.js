@@ -19,7 +19,7 @@ searchMethod.onchange = (event) => {
             showTheParks.classList.remove("d-none");                        // Displays the Show Parks button
         });
     }
-    // serach by park type
+    // search by park type
     else if (searchMethod.value === "type") {
         parkTypesArray.forEach(function(park) {
             listTypes.innerHTML += `<option value=\"${park}\">${park}</option>`;
@@ -28,11 +28,14 @@ searchMethod.onchange = (event) => {
             showTheParks.classList.remove("d-none");                        // Displays the Show Parks button
         });
     }
+    // display all parks (no search)
     else if (event.target.value === "all-Parks") {
         nationalParksArray.forEach(function(park) {
             showParksList.innerHTML += `<li>${park.LocationName}</li>`;
         });
-        showTheParks.classList.add("d-none");                            // Displays the Show Parks button
+        document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
+        document.querySelector("#byLoc").classList.add("d-none");       // Hides the State (byLoc) drop-down
+        showTheParks.classList.add("d-none");                           // Hides the Show Parks button
     }
     // if blank is selected after another choice has been made
     else {
