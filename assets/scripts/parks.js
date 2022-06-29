@@ -80,11 +80,16 @@ showTheParks.addEventListener("click", function(event) {
 
 function showParks (filteredArray) {
     filteredArray.forEach(function(parks) {
+        // attempts to remove the park's name from the address (isn't always succesful due to abbreviations and special characters)
         let address = parks.Address.split(`${parks.LocationName}, `).pop()
+
+        // checks to see if an object has a Visit property.  If it does, then create HTML for the website as a string to be used below.
         let website = "";
         if (parks.hasOwnProperty('Visit')) {
             website = `Website: <a href="${parks.Visit}" target="_blank">${parks.Visit}</a>`;
         }
+
+        // Creates the full HTML code for the table row for this entry
         showParksList.innerHTML += `
             <tr>
                 <td>
