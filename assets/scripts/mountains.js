@@ -7,35 +7,37 @@
 // Global variables for specific DOM elements
 const detailsTable = document.querySelector("#mountainDetails");
 
-
 // When a changes is made to the drop-down selection
 mountainsList.addEventListener("change", (event) => {
     // Clears the data from the table
     detailsTable.innerHTML = "";
-    // find the object in the array which matches with the selection in the drop-down
-    const chosenMountain = mountainsArray.find(mountain => mountain.name === event.target.value);
-    // sunrise/sunset data - storing as a variable
-    // let sunset = getSunsetForMountain(chosenMountain.coords.lat, chosenMountain.coords.lng).then(sunsetData => {
-    //     console.log(sunsetData.results)
-    // });
-    // creates the table row data (2 columns)
-    detailsTable.innerHTML += `<tr>
-        <td>
-            ${chosenMountain.name}
-            <img src="/assets/images/mountains/${chosenMountain.img}" alt="View of ${chosenMountain.name}"></img>
-        </td>
-        <td>
-            <ul>
-                <li>Description: ${chosenMountain.desc}</li>
-                <li>Elevation: ${chosenMountain.elevation}</li>
-                <li>Effort: ${chosenMountain.effort}</li>
-                <li>Sunrise: </li>
-                <li>Sunset: </li>
-            </ul>
-        </td>
-    </tr>`;
 
-// console.log(chosenMountain.coords.lat);
+    // creates the table row data (2 columns)
+    if(event.target.value !== "no-selection") {
+        // find the object in the array which matches with the selection in the drop-down
+        const chosenMountain = mountainsArray.find(mountain => mountain.name === event.target.value);
+
+        // sunrise/sunset data - storing as a variable
+        // let sunset = getSunsetForMountain(chosenMountain.coords.lat, chosenMountain.coords.lng).then(sunsetData => {
+        //     console.log(sunsetData.results)
+        // });
+
+        detailsTable.innerHTML += `<tr>
+            <td>
+                <h2>${chosenMountain.name}</h2>
+                <img src="/assets/images/mountains/${chosenMountain.img}" alt="View of ${chosenMountain.name}"></img>
+            </td>
+            <td>
+                <ul>
+                    <li>Description: ${chosenMountain.desc}</li>
+                    <li>Elevation: ${chosenMountain.elevation}</li>
+                    <li>Effort: ${chosenMountain.effort}</li>
+                    <li>Sunrise: </li>
+                    <li>Sunset: </li>
+                </ul>
+            </td>
+        </tr>`;
+    }
 });
 
 //function that can "fetch" the sunset/sunrise times
