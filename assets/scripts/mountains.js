@@ -34,6 +34,7 @@ mountainsList.addEventListener("change", (event) => {
                     <li>Effort: ${chosenMountain.effort}</li>
                     <li>Sunrise: </li>
                     <li>Sunset: </li>
+                    <a href="https://maps.google.com/?q=${chosenMountain.coords.lat},${chosenMountain.coords.lng}" class="btn btn-primary" target="_blank">Map</a>
                 </ul>
             </td>
         </tr>`;
