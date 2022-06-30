@@ -18,9 +18,9 @@ mountainsList.addEventListener("change", (event) => {
         const chosenMountain = mountainsArray.find(mountain => mountain.name === event.target.value);
 
         // sunrise/sunset data - storing as a variable
-        // let sunset = getSunsetForMountain(chosenMountain.coords.lat, chosenMountain.coords.lng).then(sunsetData => {
-        //     console.log(sunsetData.results)
-        // });
+        let sunset = getSunsetForMountain(chosenMountain.coords.lat, chosenMountain.coords.lng).then(sunsetData => {
+            console.log(sunsetData.results)
+        });
 
         detailsTable.innerHTML += `<tr>
             <td>
@@ -33,7 +33,7 @@ mountainsList.addEventListener("change", (event) => {
                     <li>Elevation: ${chosenMountain.elevation}</li>
                     <li>Effort: ${chosenMountain.effort}</li>
                     <li>Sunrise: </li>
-                    <li>Sunset: </li>
+                    <li>Sunset (UTC): ${sunset}</li>
                     <a href="https://maps.google.com/?q=${chosenMountain.coords.lat},${chosenMountain.coords.lng}" id="mapBtn" title="Google Maps" class="btn btn-primary" target="_blank">Map</a>
                 </ul>
             </td>
