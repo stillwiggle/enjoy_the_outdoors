@@ -23,39 +23,49 @@
 
         <!-- Choosing the search method -->
         <div id="search" class="container-lg">
-            <div>
-                <label for="searchType">Choose to search by state or park type:</label><br>
-                <select name="searchType" id="searchMethod">
-                    <option value="unselected">Select a search option</option>
-                    <option value="state">State</option>
-                    <option value="type">Park Type</option>
-                    <option value="all-Parks">View All Parks</option>
-                </select>
-                <br>
+            <div class="bg-secondary bg-opacity-50 text-light w-80">
+                <table class="table-responsive table align-top">
+                    <tr>
+                        <td class="w-25">
+                            <div>
+                                <label for="searchType">Choose to search by state or park type:</label><br>
+                                <select name="searchType" id="searchMethod">
+                                    <option value="unselected">Select a search option</option>
+                                    <option value="state">State</option>
+                                    <option value="type">Park Type</option>
+                                    <option value="all-Parks">View All Parks</option>
+                                </select>
+                                <br>
+                            </div>
+                            <br><br>
+                        </td>
+                        <td>
+                            <!-- Searching by Location (State) -->
+                            <div id="byLoc" class="d-none">
+                                <label for="locationList">Select a state:</label><br>
+                                <select name="locationList" id="stateSelection">
+
+                                </select>
+                            </div>
+                            <br>
+                        
+                            <!-- Searching by park type -->
+                            <div id="byType" class="d-none">
+                                <label for="typeList">Select a park type:</label><br>
+                                <select name="typeList" id="typeSelection">
+
+                                </select>
+                            </div>
+                        
+                            <br>
+
+                            <!-- List of parks based on the filtering criteria above -->
+                            <button id="showParks" class="d-none">Show Parks</button>
+                            <br><br>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <br><br>
-
-            <!-- Searching by Location (State) -->
-            <div id="byLoc" class="d-none">
-                <label for="locationList">Select a state:</label><br>
-                <select name="locationList" id="stateSelection">
-
-                </select>
-            </div>
-            <br>
-        
-            <!-- Searching by park type -->
-            <div id="byType" class="d-none">
-                <label for="typeList">Select a park type:</label><br>
-                <select name="typeList" id="typeSelection">
-
-                </select>
-            </div>
-            <br>
-
-            <!-- List of parks based on the filtering criteria above -->
-            <button id="showParks" class="d-none">Show Parks</button>
-            <br>
             <div class="table-responsive">
                 <table id="parkList" class="table table-secondary table-striped table-bordered w-80">
 
