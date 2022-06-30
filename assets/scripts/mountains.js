@@ -28,14 +28,23 @@ mountainsList.addEventListener("change", (event) => {
                 <img src="/assets/images/mountains/${chosenMountain.img}" alt="View of ${chosenMountain.name}"></img>
             </td>
             <td>
-                <ul>
-                    <li>Description: ${chosenMountain.desc}</li>
-                    <li>Elevation: ${chosenMountain.elevation}</li>
-                    <li>Effort: ${chosenMountain.effort}</li>
-                    <li>Sunrise: </li>
-                    <li>Sunset: </li>
-                    <a href="https://maps.google.com/?q=${chosenMountain.coords.lat},${chosenMountain.coords.lng}" id="mapBtn" title="Google Maps" class="btn btn-primary" target="_blank">Map</a>
-                </ul>
+                <table border="1" bordercolor = "#FFFFFF" class="table-responsive table align-top">
+                    <tr>
+                        <td>Description:</td>
+                        <td>${chosenMountain.desc}</td>
+                    </tr>
+                    <tr>
+                        <td>Elevation:</td>
+                        <td>${chosenMountain.elevation.toLocaleString('en-US')} ft</td>
+                    </tr>
+                    <tr>
+                        <td>Effort:</td>
+                        <td>${chosenMountain.effort}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://maps.google.com/?q=${chosenMountain.coords.lat},${chosenMountain.coords.lng}" id="mapBtn" title="Google Maps" class="btn btn-primary" target="_blank">Map</a></td>
+                    </tr>
+                </table>
             </td>
         </tr>`;
     }
