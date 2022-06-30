@@ -1,6 +1,6 @@
 const headerNav = document.querySelector("header");
 headerNav.innerHTML +=
-`<nav class="navbar navbar-expand-sm navbar-light bg-light">
+`<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   
   
 

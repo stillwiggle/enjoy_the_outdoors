@@ -1,0 +1,18 @@
+body {
+    justify-content: center;
+    background-image: url(https://news.harvard.edu/wp-content/uploads/2019/09/leo-serrat_unsplash-1-1600x900.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+table {
+    /* background-color: antiquewhite; */
+    /* border: 1px;
+    border-color: black; */
+    
+}
+
+#search {
+    
+}

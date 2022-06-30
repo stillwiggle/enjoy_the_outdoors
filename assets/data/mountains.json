@@ -10,6 +10,16 @@
             "lng": -71.303501
         }
     }, {
+        "name": "Pepe's Hill",
+        "elevation": 2006,
+        "effort": "Easy Peasey",
+        "img": "pepes-hill.png",
+        "desc": "While not a mountain, this little hill is home to a beardie with a mountain of a personality.  The National Park Service does not support this national treasure, mostly due to a technicality that she's \"just a lizard\" and something about how resources are better reserved for other areas more in need.  Still, this notable monument is worth mentioning on this list.",
+        "coords": {
+            "lat": 42.5109,
+            "lng": 71.8883
+        }
+    }, {
         "name": "Mt. Adams",
         "elevation": 5799,
         "effort": "Strenuous",
