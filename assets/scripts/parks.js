@@ -114,7 +114,8 @@ function showParks (filteredArray) {
                 <td>
                     <h2>${parks.LocationName}</h2>
                     ${address}<br>
-                    ${parks.City}, ${parks.State} ${zip}
+                    ${parks.City}, ${parks.State} ${zip}<br>
+                    <a href="https://maps.google.com/?q=${parks.Latitude},${parks.Longitude}" class="btn btn-primary" target="_blank">Map</a>
                 </td>
                 <td>
                     ${website}<br>
