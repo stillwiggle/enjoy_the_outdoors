@@ -23,11 +23,19 @@
         <h1 class="text-light">Mountains Page</h1>
 
         <div id="mountainSearch" class="container-lg">
-            <div>
+            <div class="bg-secondary bg-opacity-50 w-80">
                 <p class="text-light">Select a mountain to view its details</p>
                 <select name="mountains" id="mountains">
                     <option value="no-selection">Select a mountain...</option>
                 </select>
+                <select name="effort" id="effort">
+                    <option value="no-selection">Select a level of effort...</option>
+                    <option value="Easy Peasey">Easy Peasey</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Moderate to Strenuous">Moderate to Strenuous</option>
+                    <option value="Strenuous">Strenuous</option>
+                </select>
+                <br><br>
             </div>
             <div class="table-responsive mt-3">
                 <table class="table table-secondary table-striped table-bordered w-80">
