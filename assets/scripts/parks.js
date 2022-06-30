@@ -76,51 +76,55 @@ showTheParks.addEventListener("click", function(event) {
 });
 
 function showParks (filteredArray) {
-    filteredArray.forEach(function(parks) {
+    filteredArray.forEach(function(park) {
         // Address field: 0 = no address displayed.  Anything else gets a string
         let address = "";
-        if (parks.Address !== 0) {
+        if (park.Address !== 0) {
             // attempts to remove the park's name from the address (isn't always succesful due to abbreviations and special characters)
-            address = parks.Address.split(`${parks.LocationName}, `).pop();
+            address = park.Address.split(`${park.LocationName}, `).pop();
         }
 
         // Phone field: 0 = no phone line displayed.  Anything else gets a string
         let phone = "";
-        if (parks.Phone !== 0) {
-            phone = `Phone: ${parks.Phone}<br>`;
+        if (park.Phone !== 0) {
+            phone = `Phone: ${park.Phone}<br>`;
         }
 
         // Fax field: 0 = no fax line displayed.  Anything else gets a string
         let fax = "";
-        if (parks.Fax !== 0) {
-            fax = `Fax: ${parks.Fax}`;
+        if (park.Fax !== 0) {
+            fax = `Fax: ${park.Fax}<br>`;
         }
 
         // Zip Code field: 0 = no zip code displayed in address.  Anything else gets a number
         let zip = ""
-        if (parks.ZipCode !== 0) {
-            zip = `${parks.ZipCode}`;
+        if (park.ZipCode !== 0) {
+            zip = `${park.ZipCode}`;
         }
 
         // checks to see if an object has a Visit property.  If it does, then create HTML for the website as a string to be used below.
         let website = "";
-        if (parks.hasOwnProperty('Visit')) {
-            website = `Website: <a href="${parks.Visit}" target="_blank">${parks.Visit}</a>`;
+        if (park.hasOwnProperty('Visit')) {
+            website = `Website: <a href="${park.Visit}" target="_blank">${park.Visit}</a><br>`;
+        }
+
+        if (park.Phone === 0 && park.Fax === 0 && park.hasOwnProperty('Visit') === false) {
+            website = `This park does not have any contact information available.<br>`;
         }
 
         // Creates the full HTML code for the table row for this entry
         showParksList.innerHTML += `
             <tr>
                 <td>
-                    <h2>${parks.LocationName}</h2>
+                    <h2>${park.LocationName}</h2>
                     ${address}<br>
-                    ${parks.City}, ${parks.State} ${zip}<br>
-                    <a href="https://maps.google.com/?q=${parks.Latitude},${parks.Longitude}" class="btn btn-primary" target="_blank">Map</a>
+                    ${park.City}, ${park.State} ${zip}<br>
+                    <a href="https://maps.google.com/?q=${park.Latitude},${park.Longitude}" class="btn btn-primary" target="_blank">Map</a>
                 </td>
                 <td>
-                    ${website}<br>
                     ${phone}
                     ${fax}
+                    ${website}
                 </td>
             </tr>`;
     });
