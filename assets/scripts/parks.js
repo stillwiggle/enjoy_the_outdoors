@@ -119,7 +119,7 @@ function showParks (filteredArray) {
                     <h2>${park.LocationName}</h2>
                     ${address}<br>
                     ${park.City}, ${park.State} ${zip}<br>
-                    <a href="https://maps.google.com/?q=${park.Latitude},${park.Longitude}" class="btn btn-primary" target="_blank">Map</a>
+                    <a href="https://maps.google.com/?q=${park.Latitude},${park.Longitude}" id="mapBtn" title="Google Maps" class="btn btn-primary" target="_blank">Map</a>
                 </td>
                 <td>
                     ${phone}
