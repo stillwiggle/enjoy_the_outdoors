@@ -1,3 +1,4 @@
+// Creates HTML content for the header.  Allows a single set of content to be used across all pages.
 const headerNav = document.querySelector("header");
 headerNav.innerHTML +=
 `<nav class="navbar navbar-expand-sm navbar-dark bg-dark">

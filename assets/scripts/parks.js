@@ -20,8 +20,7 @@ searchMethod.onchange = (event) => {
             listStates.innerHTML += `<option value=\"${state}\">${state}</option>`;
             document.querySelector("#byLoc").classList.remove("d-none");    // Displays the State (byLoc) drop-down
             document.querySelector("#byType").classList.add("d-none");      // Hides the Park Type (byType) drop-down
-            showTheParks.classList.remove("d-none"); 
-                                   // Displays the Show Parks button
+            showTheParks.classList.remove("d-none");                        // Displays the Show Parks button
         });
     }
     // search by park type
@@ -138,7 +137,7 @@ function showParks (filteredArray) {
             website = `Website: <a href="${park.Visit}" target="_blank">${park.Visit}</a><br>`;
         }
 
-        // Checks to see if al of the contact information does not exist.  If so, prints out a message stating as much.
+        // Checks to see if all of the contact information does not exist.  If so, prints out a message stating so.
         if (park.Phone === 0 && park.Fax === 0 && park.hasOwnProperty('Visit') === false) {
             website = `This park does not have any contact information available.<br>`;
         }

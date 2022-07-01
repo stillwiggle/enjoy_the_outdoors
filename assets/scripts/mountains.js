@@ -52,6 +52,7 @@ effortList.addEventListener("change", (event) => {
     }
 });
 
+// Populate the table with data
 function populateTable (chosenValue) {
     return detailsTable.innerHTML += `<tr>
             <td>
