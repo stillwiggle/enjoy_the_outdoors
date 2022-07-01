@@ -71,9 +71,18 @@ showTheParks.addEventListener("click", function(event) {
         const filteredParksList = nationalParksArray.filter((park) => {
             return park.State === chosenState;
         })
-
-        // using the filtered array above, creates new <li> elements for each park, using only the names of the parks
-        showParks(filteredParksList);
+        
+        // Checks to see if the results array is empty
+        if (filteredParksList.length !== 0) {
+            // if it is not empty, fill the table with results
+            showParks(filteredParksList);
+        } else {
+            // if it is empty, display a message stating no results
+            showParksList.innerHTML += `
+            <tr>
+                <td>We're sorry, but there are no parks located in ${chosenState}.</td>
+            </tr>`;
+        }
 
     }
     // Filtering method when Park Type is the search method
