@@ -17,3 +17,20 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.homeCards {
+    box-sizing: border-box;
+    border: 10px solid whitesmoke;
+    margin-bottom: 25px;
+}
+
+h1, .subtitle {
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle {
+    font-family:'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: large;
+}
