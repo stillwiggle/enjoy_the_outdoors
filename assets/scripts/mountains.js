@@ -7,7 +7,7 @@ const effortList = document.querySelector("#effort");
 
 // Mountains drop-down: When a changes is made to the selection
 mountainsList.addEventListener("change", (event) => {
-
+    
     // Clears the data from the table
     detailsTable.innerHTML = "";
 
