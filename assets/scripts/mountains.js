@@ -57,7 +57,7 @@ function populateTable (chosenValue) {
     return detailsTable.innerHTML += `<tr>
             <td>
                 <h2>${chosenValue.name}</h2>
-                <img src="/assets/images/mountains/${chosenValue.img}" alt="View of ${chosenValue.name}"></img>
+                <img src="./assets/images/mountains/${chosenValue.img}" alt="View of ${chosenValue.name}"></img>
             </td>
             <td>
                 <table border="1" bordercolor = "#FFFFFF" class="table-responsive table align-top">

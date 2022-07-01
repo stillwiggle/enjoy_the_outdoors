@@ -1,6 +1,7 @@
 "use strict"
 // This file has locationsArray, nationalParksArray, parkTypesArray available to it because parks.html has load_national_parks_data.js loaded above this file.
 
+// Global variables used throughout the entire park selection
 const searchMethod = document.querySelector("#searchMethod");       // drop-down to determine the search method
 const listStates = document.querySelector("#stateSelection");       // drop-down listing out the available states to search by
 const listTypes = document.querySelector("#typeSelection");         // drop-down listing out the Park Types to search by
